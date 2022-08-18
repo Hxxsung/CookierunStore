@@ -1,0 +1,38 @@
+      //상품랭킹 보기
+      //버튼 나타나기
+      $('#section2 .content').on({
+        mousemove: function(){          
+          if( $('#section2 .rank').hasClass('top') ){
+            $('#section2 #right').show();
+            $('#section2 #left').hide();
+            return;
+          }
+          else {
+            $('#section2 #right').hide();
+            $('#section2 #left').show();
+            return;
+          }
+        }
+      });
+      
+      //다음/이전 버튼클릭
+      $('#section2 #right').on({
+        click: function(){
+          $('#section2 .rank').removeClass('top');
+          $('#section2 .rank').addClass('low').fadeIn('slow');          
+        },
+        mouseup: function(){
+          $('#section2 #left').removeClass('click');
+          $(this).addClass('click');
+        }
+      });
+      $('#section2 #left').on({
+        click: function(){          
+          $('#section2 .rank').removeClass('low');
+          $('#section2 .rank').addClass('top');          
+        },
+        mouseup: function(){
+          $('#section2 #right').removeClass('click');
+          $(this).addClass('click');
+        }
+      });
